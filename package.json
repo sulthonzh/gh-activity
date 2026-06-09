@@ -1,0 +1,11 @@
+{
+  "name": "gh-activity",
+  "version": "1.0.0",
+  "description": "See your recent GitHub activity timeline across all repos",
+  "main": "src/index.mjs",
+  "bin": { "gh-activity": "cli.mjs" },
+  "scripts": { "test": "node --test tests/" },
+  "keywords": ["github", "activity", "timeline", "cli"],
+  "license": "MIT",
+  "engines": { "node": ">=18" }
+}
