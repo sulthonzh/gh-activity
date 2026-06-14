@@ -19,7 +19,7 @@ try {
     console.log(formatText(events));
   }
 
-  process.exit(events.length ? 0 : 0);
+  process.exit(0);
 } catch (e) {
   console.error(`Error: ${e.message}`);
   process.exit(2);

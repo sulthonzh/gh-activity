@@ -56,7 +56,6 @@ export function fetchActivity(opts) {
     return fetchRepoActivity(opts.repo, opts);
   }
 
-  // Fetch user's public events
   const since = new Date(Date.now() - opts.days * 86400000).toISOString();
   const endpoint = `users/${user}/events?per_page=100`;
 
@@ -67,10 +66,8 @@ export function fetchActivity(opts) {
     throw new Error(`Failed to fetch events for ${user}: ${e.message}`);
   }
 
-  // Filter by date
   events = events.filter(e => new Date(e.created_at) >= new Date(since));
 
-  // Map to simplified format
   return events.map(e => ({
     type: mapEventType(e.type),
     repo: e.repo?.name || "",
@@ -84,7 +81,6 @@ function fetchRepoActivity(repo, opts) {
   const since = new Date(Date.now() - opts.days * 86400000).toISOString();
   const items = [];
 
-  // Fetch commits
   if (!opts.type || opts.type === "push") {
     try {
       const commits = JSON.parse(execSync(
@@ -102,7 +98,6 @@ function fetchRepoActivity(repo, opts) {
     } catch {}
   }
 
-  // Fetch PRs
   if (!opts.type || opts.type === "pr") {
     try {
       const prs = JSON.parse(execSync(
@@ -121,7 +116,6 @@ function fetchRepoActivity(repo, opts) {
     } catch {}
   }
 
-  // Fetch issues
   if (!opts.type || opts.type === "issue") {
     try {
       const issues = JSON.parse(execSync(
@@ -141,7 +135,6 @@ function fetchRepoActivity(repo, opts) {
     } catch {}
   }
 
-  // Fetch releases
   if (!opts.type || opts.type === "release") {
     try {
       const releases = JSON.parse(execSync(
@@ -160,7 +153,6 @@ function fetchRepoActivity(repo, opts) {
     } catch {}
   }
 
-  // Sort by date desc
   items.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
   return items.slice(0, opts.limit);
 }
