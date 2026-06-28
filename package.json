@@ -7,7 +7,7 @@
     "gh-activity": "cli.mjs"
   },
   "scripts": {
-    "test": "node --test tests/"
+    "test": "node --test tests/index.test.mjs"
   },
   "keywords": [
     "github",
@@ -20,11 +20,9 @@
     "node": ">=18"
   },
   "files": [
-    "bin/*.js",
-    "bin/*.ts",
-    "lib/**/*.js",
-    "lib/**/*.d.ts",
-    "*.md",
+    "cli.mjs",
+    "src/",
+    "README.md",
     "LICENSE"
   ],
   "publishConfig": {
