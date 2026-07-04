@@ -27,5 +27,14 @@
   ],
   "publishConfig": {
     "access": "public"
+  },
+  "author": "sulthonzh",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sulthonzh/gh-activity.git"
+  },
+  "homepage": "https://github.com/sulthonzh/gh-activity#readme",
+  "bugs": {
+    "url": "https://github.com/sulthonzh/gh-activity/issues"
   }
 }
