@@ -36,5 +36,8 @@
   "homepage": "https://github.com/sulthonzh/gh-activity#readme",
   "bugs": {
     "url": "https://github.com/sulthonzh/gh-activity/issues"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.31.0"
   }
 }
